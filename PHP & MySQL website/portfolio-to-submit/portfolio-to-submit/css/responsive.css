@@ -1,0 +1,169 @@
+.slicknav_menu
+{
+    display: none;
+}
+
+@media screen and (max-width: 992px)
+{
+    .slider
+    {
+        margin-top: 70px;
+    }
+    
+    
+    header
+    {
+        margin-top:-70px;
+        background-color: #ad9d62;
+    }
+    
+    #menu
+    {
+     display: none;   
+        
+    }
+    
+    .slicknav_menu
+    {
+        display: inline-block;
+        position: fixed;
+        z-index: 1000;
+        right: 0;
+        background: transparent;
+        margin-top: -70px;
+        
+    }
+    
+    .slicknav_btn
+    {
+        background-color: #ad9d62;
+         margin: 35px 30px 0 0; 
+		width:50%;
+        
+    }
+    
+    .slicknav_nav
+    {
+        background-color: #ad9d62;
+        width: 240px;
+    }
+    
+    .slicknav_nav li
+    {
+        margin:0;
+        padding: 0;
+        height: 3em;
+        line-height: 3em;
+        width: 240px;
+        border-bottom: 1px solid  #ad9d62; 
+        border-top: 1px solid  #ad9d62;
+        text-align: center;
+        
+    }
+    
+    
+    .slicknav_nav li a
+    {
+        margin:0;
+        padding: 0;
+        font-weight: bold;
+        transition: all 0.5s ease-in;
+    }
+    
+    
+    .slicknav_nav li a:hover
+    {
+        color: #10283e;
+        background: transparent;
+        text-decoration: none;
+    }
+     
+    .content-box
+{
+    
+    position: relative;
+    background-color: transparent;
+    margin: 15px;
+    text-align: left;
+    padding: 15px;
+}
+      
+    }
+    
+    
+@media screen and (max-width: 880px)
+{
+    .feature-mockup img
+    {
+        display: none;
+    }
+
+    .team-social-network
+    {
+        padding-bottom: 70px;
+    }
+}
+
+@media screen and (max-width:669px)
+{
+    .social-button a  
+    {
+    display: block;
+    width: 94%;
+     
+    } 
+}
+
+
+ 
+@media screen and (max-width: 405px)
+{
+    .slider a.btn
+    {
+        display: block;
+        width: 50%;
+		margin-left: 80px;
+            
+    }
+    .more-feature-area img
+    {
+        width: 85%;
+        margin-left: 35px;
+    }
+    
+    
+    .slicknav_nav li a
+    {
+        text-decoration: none;
+    }
+     .slicknav_nav li a:focus
+    {
+        color: #10283e;
+    }
+    
+    
+    
+    .feature-mockup img
+    {
+        display: none;
+    }
+   
+   .social-button a  
+    {
+    display: block;
+    width: 94%;
+     
+    }  
+    
+}
+ 
+      .    
+   
+ 
+
+}
+
+
+
+
+
