@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!--
+
+Nick Montfort
+ Original Python program:
+ 8 January 2009, Taroko Gorge National Park, Taiwan and Eva Air Flight 28
+
+Copyright (c) 2009 Nick Montfort <nickm@nickm.com>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+-->
+<style type="text/css">
+/* this changes the colors and fonts */
+body {
+  background-image: url('images/bg.jpg');
+  background-repeat: no-repeat;
+  background-color: #c0deed;
+  margin: 0 24pt 0 24pt;
+  padding-left:170pt;
+  font-family: Optima, sans-serif;
+  font-size: 13pt;
+  width:75%;
+}
+#lol{
+
+  width: 1200px;
+  height: 1000px;
+  margin-top: 100px;
+  padding-top: 10px;
+}
+/* ]]> */
+#main {
+    float:left;
+    width: 550px;
+    height: 60px;
+    margin-bottom:20pt;
+    margin-left: 100pt;
+    margin-top: 0px;
+
+}
+/* This changes the div height to accomodate an image */
+div {
+ height: 60px;
+}
+a {
+ color: #1d546d;
+ text-decoration: none;
+}
+/* This adds CSS for an image if desired */
+img {
+
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+modbelow{
+text-decoration-color: #0000ff;
+
+}
+
+</style>
+<script language="JavaScript" type="text/javascript">
+var t=0;
+var n=0;
+var paths=0;
+//these words are all nouns
+//I selected these nouns & verbs to match with  media archeology theory. using the concept of the "medium is the message",  I belive that it needs to be investigated as it hides power structures behind the transparency of the interface!
+var above='people,interface,culture,website,internet,software,Tweets,social media,activism,'.split(',');
+//the line below adds new modifiers: they should fit with the nouns in below
+var modbelow='@McLuhan,@Manovich,@Emerson,@Tufekci,@W.H.K.Chun'.split(',');
+//Here I used the names for my theorists who are related to my topic and I wanted to look like a real converstaion on the meduim which is transperant but it controls them with its affordances like 140 character.
+// and its content policy. They think they have freedom of speech however, any of them can be blocked easily by Twitter.
+//this is another set of nouns
+var below='#the_Society,#user,#Black_box,#people,interface,#Big_data,140 character only,NOW!, #Power,#WeThePeople'.split(',');
+// I used hashtags to express how fast people can connect within one hashtag globally
+//this is a set of transitive verbs
+var trans='manipulate,control,destroy,Challenge,empower, get'.split(',');
+//this is a set of imperative verbs
+var imper='Share,retweet,analyse!,Block,progress through,#Act,use,Follow, Stop!';
+imper=imper.split(',');
+//this is a set of intransitive verbs
+var intrans='Retweet,Share please!,change the world,set the rules,determine,sucks!'.split(',');
+//this is the variable that is used to sometimes add s
+var s='s,'.split(',');
+//these are textures: consider replacing with other modifiers
+var texture='interfaces,software'.split(',');
+//this is a new set of images
+var images='image.jpg,image2.jpg,image4.jpg,Moco.jpg,image5.jpg'.split(',');
+//this is for random numbers
+function rand_range(max) {
+ return Math.floor(Math.random()*(max+1));
+}
+//this chooses a random thing within any set it is sent
+function choose(array) {
+ return array[rand_range(array.length-1)];
+}
+//this is a comment
+//the computer doesn't care what I write here
+
+/*
+this comment is fancy
+and won't stop until the close symbol
+(you can use it to comment out broken code!)
+*/
+function path() {
+ var p=rand_range(1);
+ //this will be the first word
+ var words=choose(above);
+ //this makes a special thing happen -- use it for something unusual. it's caused by a word from the "above" set
+ if ((words=='theory')&&(rand_range(1)==1)) {
+  //words='theorists '+' '+choose(trans);
+  //I changed the category to make more sense
+  words='theorists '+' '+choose(imper);
+ } else {
+ //cut the s[p] if you don't want an s
+  words+=' '+choose(trans)+ ' '+choose(below);
+ }
+ //the line below has been changed to add the modbelow modifier
+ words+=choose(modbelow) +' '+choose(intrans);
+ return words;
+}
+function site() {
+ var words='';
+ //this uses a different poetic structure than the other: note which types of words goes where
+ if (rand_range(2)==1) {
+  words+=choose(below);
+ } else {
+ //the line below has also been changed to add the modbelow modifier
+  words+=' '+choose(modbelow) +' '+ choose(imper);
+ }
+ words+=' '+choose(modbelow);
+ return words;
+}
+function cave() {
+//this is another structure: in the original, it's for the lines about inside the cave
+//change these adjectives to change how the words are described
+ var adjs=('analysing,'+' '+choose(texture)+',threating,visual,intelligent,interactive, digital,strategy').split(',');
+ //I changed to the adjectives used in the field
+ var target=1+rand_range(1);
+ while (adjs.length>target) {
+  adjs.splice(rand_range(adjs.length),1);
+  }
+  //the line below has been modified to not be indented by removing \u00a0
+  //if you want to get rid of the dash, you can also remove \u2014
+ var words=choose(imper)+' '+ adjs.join(' ');
+ return words;
+}
+function do_line() {
+//this grabs the thing from the HTML that holds the poem
+ var main=document.getElementById('main');
+ if (t<=25) {
+  t+=1;
+ } else {
+ //this removes the line that was at the top if there are too many lines: it's what makes it look like it is scrolling
+  main.removeChild(document.getElementById('main').firstChild);
+ }
+ if (n===0) {
+ //this creates the blank lines: you can also add text here. it will cycle through to the next line style each time it generates a line, then restart at the top. here I've replaced it with a different call.
+  //text=' ';
+  text=cave();
+ } else if (n==1) {
+  paths=2+rand_range(2);
+  text=path();
+ } else if (n<paths) {
+  text=site();
+ } else if (n==paths) {
+  text=path();
+ } else if (n==paths+1) {
+  text=path();
+ } else if (n==paths+2) {
+  text=cave();
+ } else {
+  //text=' ';
+  text=site();
+  n=0;
+ }
+ n+=1;
+ //this converts the first word to start with a capital letter: remove it if you don't want that
+ text=text.substring(0,1).toUpperCase()+text.substring(1,text.length);
+ last=document.createElement('div');
+ var img = document.createElement('img');
+ img.src= choose(images);
+ last.appendChild(img);
+ last.appendChild(document.createTextNode(text));
+ main.appendChild(last);
+}
+function poem() {
+//the 1200 sets the amount of time between lines being generated: shorten it to speed it up, increase it to slow it down
+ setInterval(do_line, 1200);
+}
+</script>
+  <title>Taroko Gorge</title>
+</head>
+<body onload="poem()">
+<div style="float:right; margin-left:1100px; color:#424141; height:60pt; margin-top:50px">
+<div>#Connecting the World or #Controlling it?</div>
+<div>Inventing the internet was for the goal of connecting the world together, however; the internet itself is a military project and its place is in the CIA. This new medium with various software applications worth investigating as it changes the society after it. Through McLuhan’s view of the medium that is not neutral and it can be the message because it changes the society. We can understand the role of Twitter and other social media software in shaping a new society. A society with  magical technological tools that empowers people with new way in communication. For instance, Twitter helps to connect one to many in a rapid way and organize large masses in the Arab spring through #hashtags (Tufekci 2017). The interface of Twitter is for millions their window to the world (Manovich, 2013), however; it controls what to see through this window. These interfaces are becoming less transparent and less visible to the audience like Black boxes. This manipulates the audience through the affordances these interfaces offer or the hardware they function on it (Emerson 2014) or by treating the user as a consumer by collecting big data or by controlling the content users expose to by deletion. The more transparent these interfaces are, the more controlling they become.
+The problem is capsulated in the question whether the user acknowledges the hidden power structures that control these interfaces and how can the user be innovative in using these tools to push back?
+
+
+
+
+</div>
+
+</div>
+<div id="main"></div>
+</body>
+</html>
